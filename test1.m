@@ -28,6 +28,6 @@ figure, imshow(I3,'InitialMagnification',100);
 % I4 = automaticThresholding(I7);
 % figure, imshow(I4,'InitialMagnification',100);
 
-% imwrite(I3, 'img\sub.jpeg');
+imwrite(I3, 'img\vidSub.jpeg');
 % imwrite(I4, 'img\otsu.jpeg');
 
