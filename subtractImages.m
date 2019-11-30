@@ -13,12 +13,12 @@ function I3 = subtractImages(I1, I2)
 
         for r = 1 : r1
             for c = 1 : c1
-%                 if I1(r, c, 1) - I2(r, c, 1) > 0
-%                     I3(r, c, 1) = I1(r, c, 1) - I2(r, c, 1);
-%                 else
-%                     I3(r, c, 1) = I2(r, c, 1) - I1(r, c, 1);
-%                 end
-                I3(r, c, 1) = I1(r, c, 1) - I2(r, c, 1);
+                if I1(r, c, 1) - I2(r, c, 1) > 0
+                    I3(r, c, 1) = I1(r, c, 1) - I2(r, c, 1);
+                else
+                    I3(r, c, 1) = I2(r, c, 1) - I1(r, c, 1);
+                end
+%                 I3(r, c, 1) = I1(r, c, 1) - I2(r, c, 1);
                 
             end
         end
