@@ -1,4 +1,4 @@
-function ILabel = labelingAlgorithm(I1)
+function ILabel2 = labelingAlgorithm(I1)
     % check if image is binary
 
     % get image size
@@ -55,6 +55,25 @@ function ILabel = labelingAlgorithm(I1)
                         end
                     end
                 end
+            end
+        end
+    end
+    
+    % sequentially labelled
+    ILabel2 = zeros(r1, c1, 'uint8');
+    count2 = 1;
+    for r = 1 : r1
+        for c = 1 : c1
+            if ILabel(r, c) ~= 0 && ILabel2(r, c) == 0
+                
+                for x = 1 : r1
+                    for y = 1 : c1
+                        if ILabel(x, y) == ILabel(r, c)
+                            ILabel2(x, y) = count2;
+                        end
+                    end
+                end
+                count2 = count2 + 1;
             end
         end
     end
