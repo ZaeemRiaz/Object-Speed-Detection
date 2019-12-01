@@ -1,8 +1,8 @@
 
-v = VideoReader('img\car3.mp4');
+v = VideoReader('img\car7.mp4');
 
-f1 = read(v,32);
-f2 = read(v,60);
+f1 = read(v,52);
+f2 = read(v,63);
 
 % I1 = rgb2gray(f1);
 % I2 = rgb2gray(f2);
@@ -16,13 +16,14 @@ Ib = subtractImages(f1(:,:,3), f2(:,:,3));
 
 I3 = imadd(imadd(Ir, Ig), Ib);
 % I3 = subtractImages(I1, I2);
-figure, imshow(I3,'InitialMagnification',100);
+% figure, imshow(I3,'InitialMagnification',100);
 
 I4 = automaticThresholding(I3);
 % figure, imshow(I4,'InitialMagnification',100);
 
 morph = Morphology;
-I5 = morph.dilation(I4);
+I5 = morph.erosion(I4);
+I5 = morph.dilation(I5);
 I6 = morph.dilation(I5);
 
 figure, imshow(I6,'InitialMagnification',100);

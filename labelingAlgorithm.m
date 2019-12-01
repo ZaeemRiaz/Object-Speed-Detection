@@ -29,9 +29,6 @@ function ILabel2 = labelingAlgorithm(I1)
                                 % A_Label = C_Label
                                 ILabel(r, c) = ILabel(r-1, c);
                                 % UPDATE
-                                if count == 316
-                                   x=1; 
-                                end
                                 for x = 1 : r1
                                     for y = 1 : c1
                                         % if Label(x, y) == B_Label
