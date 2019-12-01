@@ -1,0 +1,44 @@
+classdef (ConstructOnLoad = true) Morphology
+    methods
+
+        % dilation
+        function A1 = dilation(~, I1)
+            % get image size
+            [r1, c1] = size(I1);
+            
+            % mask
+            M = [0 1 0, 1 1 1, 0 1 0];
+            
+            
+            
+            I2 = zeros(r1, c1, 'uint32');
+            for r = 2 : r1 -1
+                for c = 2 : c1 - 1
+                    
+                    for x = 1 : 3
+                        for y = 1 : 3
+                            
+                        end
+                    end
+                    
+                end
+            end
+            j = 1;
+            A1 = zeros(2, 1, 'uint32');
+            for i = 1 : 10
+                if A(i) ~= 0
+                    A1(j) = A(i);
+                    j = j + 1;
+                end
+            end
+           
+        end
+        
+        % erosion
+        function A1 = dilation(~, I1)
+            
+           
+        end
+
+    end
+end
