@@ -10,7 +10,7 @@ classdef (ConstructOnLoad = true) BinaryObjectFeature
             % get labelled image
             ILabel = labelingAlgorithm(I1);
             
-            A = zeros(10, 1, 'uint32');
+            A = zeros(50, 1, 'uint32');
             for r = 1 : r1
                 for c = 1 : c1
                     if ILabel(r, c) ~= 0
@@ -28,7 +28,7 @@ classdef (ConstructOnLoad = true) BinaryObjectFeature
             
             % get labelled image
             ILabel = labelingAlgorithm(I1);
-            coord1 = zeros(10, 2, 'uint32');
+            coord1 = zeros(50, 2, 'uint32');
             
             % get center of area
             for r = 1 : r1
@@ -43,9 +43,11 @@ classdef (ConstructOnLoad = true) BinaryObjectFeature
             
             A = obj.area(I1);
             % divide by area
-            for k = 1 : 10
-                coord1(k, 1) = coord1(k, 1) / A(k);
-                coord1(k, 2) = coord1(k, 2) / A(k);
+            for k = 1 : 50
+                if coord1(k, 1) ~= 0 || coord1(k, 2) ~= 0
+                    coord1(k, 1) = coord1(k, 1) / A(k);
+                    coord1(k, 2) = coord1(k, 2) / A(k);
+                end
             end
         end
 

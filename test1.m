@@ -1,19 +1,31 @@
 
 v = VideoReader('img\car3.mp4');
 
-f1 = read(v,30);
-f2 = read(v,62);
+f1 = read(v,32);
+f2 = read(v,60);
 
-I1 = rgb2gray(f1);
-I2 = rgb2gray(f2);
+% I1 = rgb2gray(f1);
+% I2 = rgb2gray(f2);
 
-I3 = subtractImages(I1, I2);
+% figure, imshow(I1,'InitialMagnification',100);
+% figure, imshow(I2,'InitialMagnification',100);
+
+Ir = subtractImages(f1(:,:,1), f2(:,:,1));
+Ig = subtractImages(f1(:,:,2), f2(:,:,2));
+Ib = subtractImages(f1(:,:,3), f2(:,:,3));
+
+I3 = imadd(imadd(Ir, Ig), Ib);
+% I3 = subtractImages(I1, I2);
+figure, imshow(I3,'InitialMagnification',100);
 
 I4 = automaticThresholding(I3);
+% figure, imshow(I4,'InitialMagnification',100);
 
 morph = Morphology;
 I5 = morph.dilation(I4);
 I6 = morph.dilation(I5);
+
+figure, imshow(I6,'InitialMagnification',100);
 
 bof = BinaryObjectFeature;
 area = bof.area(I6);
@@ -43,6 +55,6 @@ y1 = coord(maxI, 2);
 x2 = coord(smaxI, 1);
 y2 = coord(smaxI, 2);
 
-% imwrite(I5, 'img\2xdilation.jpeg');
-% imwrite(I4, 'img\otsu.jpeg');
+% imwrite(I4, 'img\grey.jpeg');
+% imwrite(Id, 'img\color.jpeg');
 
