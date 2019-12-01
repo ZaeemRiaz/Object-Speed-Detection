@@ -69,7 +69,5 @@ dis = calculatedistance(I4);
 
 %calculate actual distance between car start and end point%
 
-realdis = dis * pixel_len;
-
-%we can use dialate and erosion to fill gaps in the car%
+realdis = dis * pi
 
