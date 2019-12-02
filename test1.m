@@ -59,17 +59,25 @@ y2 = coord(smaxI, 2);
 % imwrite(I4, 'img\grey.jpeg');
 % imwrite(Id, 'img\color.jpeg');
 
-%how many mm in 1 pixel%
+%how many cm in 1 pixel%
 
 pixel_len = pi_to_cm(f1);
 
-%calculate number of pixels between car start and end point in pixels%
+%calculate number of pixels between car start and end point%
 
-dis = calculatedistance(I4);
+dis = calculatedistance(I6,y1,y2);
 
 %calculate actual distance between car start and end point%
 
-realdis = dis * pixel_len;
+realdist = dis * pixel_len;
 
-%we can use dialate and erosion to fill gaps in the car%
+totalframes = 90;
+frames_per_sec = 30;
+t = totalframes/frames_per_sec;
+
+
+%finding speed%
+
+sp = realdist/t;
+
 

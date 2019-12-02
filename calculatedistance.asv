@@ -1,4 +1,4 @@
-function [output] = calculatedistance(inputArg1,i1,i2)
+function [output] = calculatedistance(inputArg1,i1,i2,i3,i4)
 
 % count = 0;
 image = inputArg1;
@@ -22,18 +22,17 @@ image = inputArg1;
 %     end
 % end
 
+r1 = i1;
+c1 = i2;
 
-c1 = i1;
+r2 = i3;
+c2 = i4;
 
-c2 = i2;
-
-res = c2 - c1;
+res = image(r1,c10) - image(r2,c2);
 
 if(res<0)
     res = res*-1;
-end
-
-output = res;
+    e
 
 
 
