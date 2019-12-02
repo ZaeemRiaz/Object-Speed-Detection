@@ -1,4 +1,4 @@
-function [output] = calculatedistance(inputArg1,i1,i2)
+function [output] = calculateDistance(inputArg1,i1,i2)
 
 % count = 0;
 image = inputArg1;

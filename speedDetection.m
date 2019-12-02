@@ -1,14 +1,8 @@
 
-v = VideoReader('img\car7.mp4');
+v = VideoReader('car.mp4');
 
 f1 = read(v,52);
 f2 = read(v,63);
-
-% I1 = rgb2gray(f1);
-% I2 = rgb2gray(f2);
-
-% figure, imshow(I1,'InitialMagnification',100);
-% figure, imshow(I2,'InitialMagnification',100);
 
 Ir = subtractImages(f1(:,:,1), f2(:,:,1));
 Ig = subtractImages(f1(:,:,2), f2(:,:,2));
@@ -56,16 +50,13 @@ y1 = coord(maxI, 2);
 x2 = coord(smaxI, 1);
 y2 = coord(smaxI, 2);
 
-% imwrite(I4, 'img\grey.jpeg');
-% imwrite(Id, 'img\color.jpeg');
-
 %how many cm in 1 pixel%
 
 pixel_len = pi_to_cm(f1);
 
 %calculate number of pixels between car start and end point%
 
-dis = calculatedistance(I6,y1,y2);
+dis = calculateDistance(I6,y1,y2);
 
 %calculate actual distance between car start and end point%
 
@@ -80,4 +71,6 @@ t = totalframes/frames_per_sec;
 
 sp = realdist/t;
 
+sp
 
+'cm/s'
