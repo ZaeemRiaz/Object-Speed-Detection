@@ -10,17 +10,14 @@ Ib = subtractImages(f1(:,:,3), f2(:,:,3));
 
 I3 = imadd(imadd(Ir, Ig), Ib);
 % I3 = subtractImages(I1, I2);
-% figure, imshow(I3,'InitialMagnification',100);
 
 I4 = automaticThresholding(I3);
-% figure, imshow(I4,'InitialMagnification',100);
 
 morph = Morphology;
 I5 = morph.erosion(I4);
 I5 = morph.dilation(I5);
 I6 = morph.dilation(I5);
 
-figure, imshow(I6,'InitialMagnification',100);
 
 bof = BinaryObjectFeature;
 area = bof.area(I6);
@@ -62,7 +59,7 @@ dis = calculateDistance(I6,y1,y2);
 
 realdist = dis * pixel_len;
 
-totalframes = 90;
+totalframes = 11;
 frames_per_sec = 30;
 t = totalframes/frames_per_sec;
 
@@ -74,3 +71,7 @@ sp = realdist/t;
 sp
 
 'cm/s'
+
+figure, imshow(I6,'InitialMagnification',100);
+figure, imshow(I4,'InitialMagnification',100);
+figure, imshow(I3,'InitialMagnification',100);
